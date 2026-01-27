@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/00 Build.loader.js";
+      var loaderUrl = buildUrl + "/00 build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/00 Build.data.unityweb",
-        frameworkUrl: buildUrl + "/00 Build.framework.js.unityweb",
-        codeUrl: buildUrl + "/00 Build.wasm.unityweb",
+        dataUrl: buildUrl + "/00 build.data.unityweb",
+        frameworkUrl: buildUrl + "/00 build.framework.js.unityweb",
+        codeUrl: buildUrl + "/00 build.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Jarogo",
         productName: "Combo Cab Simulator 3D",
@@ -119,15 +119,6 @@
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
-
-                 // 🔥 PAUSE GAME WHEN TAB IS NOT ACTIVE
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            unityInstance.SendMessage("GameStatus", "OnTabHidden");
-        } else {
-            unityInstance.SendMessage("GameStatus", "OnTabVisible");
-        }
-    });
               }).catch((message) => {
                 alert(message);
               });
