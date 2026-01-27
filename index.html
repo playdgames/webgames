@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -119,6 +119,15 @@
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
+
+                 // 🔥 PAUSE GAME WHEN TAB IS NOT ACTIVE
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            unityInstance.SendMessage("GameStatus", "OnTabHidden");
+        } else {
+            unityInstance.SendMessage("GameStatus", "OnTabVisible");
+        }
+    });
               }).catch((message) => {
                 alert(message);
               });
